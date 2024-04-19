@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(cors());
 
 // Database Connection With MongoDB
-//mongoose.connect("mongodb+srv://ashish_dataBase:WQMipm6WNyb6jxxo@myapp.3hwdvc6.mongodb.net/e-commerce");
+
 mongoose.connect("mongodb+srv://vinayabhishekjain:BZQtOBQorovhwnia@myapp.lennzfy.mongodb.net/?");
 // paste your mongoDB Connection string above with password
 // password should not contain '@' special character
@@ -28,7 +28,7 @@ const upload = multer({ storage: storage })
 app.post("/upload", upload.single('product'), (req, res) => {
   res.json({
     success: 1,
-    image_url: `http://localhost:4000/images/${req.file.filename}`
+    image_url: `https://e-commerce-backend-2-ciy0.onrender.com/images/${req.file.filename}`
   })
 })
 app.use('/images', express.static('upload/images'));
